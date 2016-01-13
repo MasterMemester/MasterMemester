@@ -4,29 +4,18 @@ public class DrawCard {
 
 	{
 
+		int card = carddraw();
+		String cardcard = Drawcard();
 		
-		int sum = 0;
-		int card;
-
-		while (sum < 16) {
-			
-			card = carddraw();
-			sum = sum + card;
-
-			if (sum < 22) {
-				System.out.print(" " + card + " ");
-			} else {
-				System.out.print(card + " bust,");
-			}
-
-		}
-
-		System.out.print(" your total is " + sum);
+		
+		System.out.print(" " + cardcard + " ");
+		System.out.print(" " + card + " ");
 
 	}
 
 	public static String Drawcard() {
-		String Stringcard;
+		String Stringcard = "";
+		
 		int card = (int) RandomNumbers.GetRandom(13);
 
 		if (card == 11) {
@@ -34,16 +23,16 @@ public class DrawCard {
 		}
 		if (card == 12) {
 			Stringcard = "Q";
-
 		}
+
 		if (card == 13) {
 			Stringcard = "K";
-
 		}
+
 		if (card == 1) {
 			Stringcard = "A";
-
-		} else {
+		}
+		else if (card < 11 && card > 1) {
 			Stringcard = String.valueOf(card);
 		}
 
@@ -52,32 +41,33 @@ public class DrawCard {
 	}
 
 	public static int carddraw() {
-		int intcard;
+		
 		String Stringcard = Drawcard();
+		
+		int intcard = 0;
 		if (Stringcard == "K") {
 
 			intcard = 10;
-
 		}
+
 		if (Stringcard == "Q") {
 
 			intcard = 10;
-
 		}
+
 		if (Stringcard == "J") {
 
 			intcard = 10;
-
 		}
+
 		if (Stringcard == "A") {
 
 			intcard = 11;
-
 		}
-		else {
-			 intcard = Integer.valueOf(Stringcard);
-				
-			}
+
+
+	
+
 		return intcard;
 	}
 }
